@@ -47,4 +47,14 @@ The application uses a simple data model with meaningful identifiers:
    - Name
    - Grade level
 
-All data is stored in memory, which means data will be reset when the server restarts.
+## Persistence
+
+Data is stored in a local SQLite database at `src/mergington.sqlite3`, so activities and signups survive application restarts.
+
+If you want to reset the app back to the seeded sample data, stop the server and delete the database file.
+
+All other behavior stays the same:
+
+- `GET /activities` still returns all activities with their participants
+- `POST /activities/{activity_name}/signup` still signs up a student
+- `DELETE /activities/{activity_name}/unregister` still removes a student
